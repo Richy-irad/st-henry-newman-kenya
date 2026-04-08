@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "news": "News",
+    "events": "Events",
+    "resources": "Resources",
+    "library": "Library",
+    "links": "Links",
+    "contact": "Contact",
+    "membership": "Join Us"
+  },
+  "home": {
+    "heroTitle": "St. Henry Newman & Friends Association",
+    "heroSubtitle": "Promoting the life, thought, and legacy of Saint John Henry Newman in Kenya and East Africa",
+    "missionTitle": "Our Mission",
+    "missionText": "The St. Henry Newman and Friends Association is dedicated to fostering a deeper understanding of Cardinal John Henry Newman's theological, philosophical, and literary contributions. Based in Nairobi, Kenya, we serve as a bridge between Newman's enduring wisdom and the vibrant intellectual life of East Africa.",
+    "missionText2": "Through conferences, publications, retreats, and scholarly exchange, we seek to make Newman's thought accessible to a new generation of thinkers, believers, and seekers of truth.",
+    "eventsTitle": "Upcoming Events",
+    "eventsViewAll": "View All Events",
+    "newsTitle": "Latest News",
+    "newsViewAll": "View All News",
+    "ctaTitle": "Become a Member",
+    "ctaText": "Join our growing community of scholars, students, and friends who share a passion for Newman's vision of faith and reason.",
+    "ctaButton": "Learn More"
+  },
+  "about": {
+    "heroTitle": "About Us",
+    "heroSubtitle": "Our history, mission, and the people behind the Association",
+    "historyTitle": "Our History",
+    "historyText": "Founded in 2018, the St. Henry Newman and Friends Association emerged from a shared conviction among Kenyan academics and clergy that Cardinal Newman's insights on education, conscience, and the development of doctrine hold profound relevance for Africa today. What began as informal reading groups in Nairobi has grown into a recognized member of the international Newman family.",
+    "historyText2": "Our founding coincided with the canonization of John Henry Newman on 13 October 2019 by Pope Francis, an event that energized Catholic intellectual life worldwide and gave our nascent association a powerful sense of purpose.",
+    "missionTitle": "Mission & Vision",
+    "missionText": "We exist to promote the study, dissemination, and application of Newman's thought across Kenya and the broader East African region. Our vision is a community where Newman's ideals of liberal education, the primacy of conscience, and the harmony of faith and reason shape public discourse and personal formation.",
+    "teamTitle": "Our Leadership",
+    "patronTitle": "Our Patron Saint",
+    "patronText": "Saint John Henry Newman (1801–1890) was an English theologian, philosopher, and poet who became one of the most influential figures in modern Christianity. Originally an Anglican clergyman and a leader of the Oxford Movement, he converted to Roman Catholicism in 1845 and was later created a Cardinal by Pope Leo XIII.",
+    "patronText2": "Newman's motto, \"Cor ad cor loquitur\" (Heart speaks unto heart), captures his belief that genuine faith is communicated not through argument alone, but through the witness of a life devoted to truth. He was canonized by Pope Francis on 13 October 2019 and declared a Doctor of the Church."
+  },
+  "news": {
+    "heroTitle": "News & Updates",
+    "heroSubtitle": "Stay informed about our latest activities and announcements",
+    "readMore": "Read More",
+    "backToNews": "Back to News"
+  },
+  "events": {
+    "heroTitle": "Events",
+    "heroSubtitle": "Conferences, symposia, retreats, and gatherings",
+    "filterAll": "All",
+    "filterConference": "Conferences",
+    "filterRetreat": "Retreats",
+    "filterSymposium": "Symposia",
+    "location": "Location",
+    "date": "Date"
+  },
+  "resources": {
+    "heroTitle": "Resources",
+    "heroSubtitle": "Publications, studies, and downloadable documents",
+    "publications": "Publications",
+    "studies": "Studies",
+    "documents": "Documents",
+    "download": "Download"
+  },
+  "library": {
+    "heroTitle": "Library & Bibliography",
+    "heroSubtitle": "A catalog of Newman's works, translations, and scholarly articles",
+    "searchPlaceholder": "Search the library...",
+    "filterAll": "All",
+    "filterWorks": "Newman's Works",
+    "filterTranslations": "Translations",
+    "filterArticles": "Scholarly Articles",
+    "author": "Author",
+    "year": "Year"
+  },
+  "links": {
+    "heroTitle": "Sister Organizations",
+    "heroSubtitle": "Our partners in the international Newman family",
+    "visitWebsite": "Visit Website"
+  },
+  "contact": {
+    "heroTitle": "Contact Us",
+    "heroSubtitle": "Get in touch with the Association",
+    "formTitle": "Send a Message",
+    "name": "Full Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "infoTitle": "Contact Information",
+    "address": "Newman House, Kenyatta Avenue, Nairobi, Kenya",
+    "phone": "+254 20 123 4567",
+    "emailAddress": "info@newmankenya.org",
+    "hoursTitle": "Opening Hours",
+    "hours": "Monday – Friday: 9:00 AM – 5:00 PM",
+    "hoursSat": "Saturday: 10:00 AM – 2:00 PM",
+    "hoursSun": "Sunday: Closed"
+  },
+  "membership": {
+    "heroTitle": "Become a Member",
+    "heroSubtitle": "Join the St. Henry Newman and Friends Association",
+    "whyJoinTitle": "Why Join?",
+    "whyJoinText": "Membership in the Association connects you with a community of scholars, educators, clergy, and lay faithful who share a passion for Newman's vision. Members receive access to exclusive publications, invitations to conferences and retreats, and the opportunity to contribute to the intellectual and spiritual life of the Church in East Africa.",
+    "tiersTitle": "Membership Tiers",
+    "joinNow": "Join Now",
+    "benefits": "Benefits"
+  },
+  "footer": {
+    "about": "The St. Henry Newman and Friends Association promotes the legacy of Saint John Henry Newman in Kenya and East Africa through scholarship, community, and faith.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "rights": "All rights reserved.",
+    "partners": "Partner Organizations"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "backToTop": "Back to Top"
+  }
+}

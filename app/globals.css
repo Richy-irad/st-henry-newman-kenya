@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #b01c37;
+  --color-primary-dark: #8a1529;
+  --color-primary-light: #d4a0aa;
+  --color-primary-tint: #f5e8eb;
+  --color-accent: #c5973e;
+  --color-neutral-900: #1a1a1a;
+  --color-neutral-600: #555555;
+  --color-neutral-200: #e8e8e8;
+  --color-neutral-50: #f9f7f7;
+  --radius: 6px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-tint: var(--color-primary-tint);
+  --color-accent: var(--color-accent);
+  --color-neutral-900: var(--color-neutral-900);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-50: var(--color-neutral-50);
+  --font-heading: var(--font-playfair-display);
+  --font-body: var(--font-source-sans-3);
+}
+
+body {
+  background: var(--color-neutral-50);
+  color: var(--color-neutral-900);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}

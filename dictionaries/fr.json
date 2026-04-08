@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "news": "Actualités",
+    "events": "Événements",
+    "resources": "Ressources",
+    "library": "Bibliothèque",
+    "links": "Liens",
+    "contact": "Contact",
+    "membership": "Adhérer"
+  },
+  "home": {
+    "heroTitle": "Association St. Henry Newman et Amis",
+    "heroSubtitle": "Promouvoir la vie, la pensée et l'héritage de Saint John Henry Newman au Kenya et en Afrique de l'Est",
+    "missionTitle": "Notre Mission",
+    "missionText": "L'Association St. Henry Newman et Amis se consacre à approfondir la compréhension des contributions théologiques, philosophiques et littéraires du Cardinal John Henry Newman. Basée à Nairobi, au Kenya, nous servons de pont entre la sagesse durable de Newman et la vie intellectuelle vibrante de l'Afrique de l'Est.",
+    "missionText2": "À travers des conférences, des publications, des retraites et des échanges académiques, nous cherchons à rendre la pensée de Newman accessible à une nouvelle génération de penseurs, de croyants et de chercheurs de vérité.",
+    "eventsTitle": "Événements à venir",
+    "eventsViewAll": "Voir tous les événements",
+    "newsTitle": "Dernières nouvelles",
+    "newsViewAll": "Voir toutes les actualités",
+    "ctaTitle": "Devenez membre",
+    "ctaText": "Rejoignez notre communauté croissante de chercheurs, d'étudiants et d'amis qui partagent une passion pour la vision de Newman sur la foi et la raison.",
+    "ctaButton": "En savoir plus"
+  },
+  "about": {
+    "heroTitle": "À propos",
+    "heroSubtitle": "Notre histoire, notre mission et les personnes derrière l'Association",
+    "historyTitle": "Notre histoire",
+    "historyText": "Fondée en 2018, l'Association St. Henry Newman et Amis est née d'une conviction partagée parmi les universitaires et le clergé kenyans que les idées du Cardinal Newman sur l'éducation, la conscience et le développement de la doctrine ont une pertinence profonde pour l'Afrique d'aujourd'hui.",
+    "historyText2": "Notre fondation a coïncidé avec la canonisation de John Henry Newman le 13 octobre 2019 par le Pape François, un événement qui a dynamisé la vie intellectuelle catholique dans le monde entier.",
+    "missionTitle": "Mission et Vision",
+    "missionText": "Nous existons pour promouvoir l'étude, la diffusion et l'application de la pensée de Newman au Kenya et dans la région élargie de l'Afrique de l'Est.",
+    "teamTitle": "Notre direction",
+    "patronTitle": "Notre saint patron",
+    "patronText": "Saint John Henry Newman (1801–1890) était un théologien, philosophe et poète anglais qui est devenu l'une des figures les plus influentes du christianisme moderne.",
+    "patronText2": "La devise de Newman, «Cor ad cor loquitur» (Le cœur parle au cœur), capture sa conviction que la foi authentique se communique non seulement par l'argument, mais par le témoignage d'une vie consacrée à la vérité."
+  },
+  "news": {
+    "heroTitle": "Actualités",
+    "heroSubtitle": "Restez informé de nos dernières activités et annonces",
+    "readMore": "Lire la suite",
+    "backToNews": "Retour aux actualités"
+  },
+  "events": {
+    "heroTitle": "Événements",
+    "heroSubtitle": "Conférences, colloques, retraites et rassemblements",
+    "filterAll": "Tous",
+    "filterConference": "Conférences",
+    "filterRetreat": "Retraites",
+    "filterSymposium": "Colloques",
+    "location": "Lieu",
+    "date": "Date"
+  },
+  "resources": {
+    "heroTitle": "Ressources",
+    "heroSubtitle": "Publications, études et documents téléchargeables",
+    "publications": "Publications",
+    "studies": "Études",
+    "documents": "Documents",
+    "download": "Télécharger"
+  },
+  "library": {
+    "heroTitle": "Bibliothèque",
+    "heroSubtitle": "Catalogue des œuvres de Newman, traductions et articles académiques",
+    "searchPlaceholder": "Rechercher dans la bibliothèque...",
+    "filterAll": "Tous",
+    "filterWorks": "Œuvres de Newman",
+    "filterTranslations": "Traductions",
+    "filterArticles": "Articles académiques",
+    "author": "Auteur",
+    "year": "Année"
+  },
+  "links": {
+    "heroTitle": "Organisations sœurs",
+    "heroSubtitle": "Nos partenaires dans la famille newmanienne internationale",
+    "visitWebsite": "Visiter le site"
+  },
+  "contact": {
+    "heroTitle": "Nous contacter",
+    "heroSubtitle": "Prenez contact avec l'Association",
+    "formTitle": "Envoyer un message",
+    "name": "Nom complet",
+    "email": "Adresse e-mail",
+    "subject": "Sujet",
+    "message": "Message",
+    "send": "Envoyer",
+    "infoTitle": "Coordonnées",
+    "address": "Newman House, Kenyatta Avenue, Nairobi, Kenya",
+    "phone": "+254 20 123 4567",
+    "emailAddress": "info@newmankenya.org",
+    "hoursTitle": "Heures d'ouverture",
+    "hours": "Lundi – Vendredi : 9h00 – 17h00",
+    "hoursSat": "Samedi : 10h00 – 14h00",
+    "hoursSun": "Dimanche : Fermé"
+  },
+  "membership": {
+    "heroTitle": "Devenez membre",
+    "heroSubtitle": "Rejoignez l'Association St. Henry Newman et Amis",
+    "whyJoinTitle": "Pourquoi adhérer ?",
+    "whyJoinText": "L'adhésion à l'Association vous connecte avec une communauté de chercheurs, d'éducateurs, de clercs et de fidèles laïcs qui partagent une passion pour la vision de Newman.",
+    "tiersTitle": "Niveaux d'adhésion",
+    "joinNow": "Adhérer maintenant",
+    "benefits": "Avantages"
+  },
+  "footer": {
+    "about": "L'Association St. Henry Newman et Amis promeut l'héritage de Saint John Henry Newman au Kenya et en Afrique de l'Est.",
+    "quickLinks": "Liens rapides",
+    "contactUs": "Nous contacter",
+    "rights": "Tous droits réservés.",
+    "partners": "Organisations partenaires"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "viewAll": "Voir tout",
+    "backToTop": "Retour en haut"
+  }
+}
