@@ -25,28 +25,8 @@ export default async function ContactPage({
             <ContactForm dict={dict.contact} />
           </div>
 
-          {/* Contact Info */}
+          {/* Hours & Map */}
           <div className="space-y-8">
-            <div>
-              <SectionHeading as="h3" centered={false}>
-                {dict.contact.infoTitle}
-              </SectionHeading>
-              <dl className="mt-6 space-y-4 text-sm text-neutral-600">
-                <div>
-                  <dt className="font-medium text-neutral-900">Address</dt>
-                  <dd>{dict.contact.address}</dd>
-                </div>
-                <div>
-                  <dt className="font-medium text-neutral-900">Phone</dt>
-                  <dd>{dict.contact.phone}</dd>
-                </div>
-                <div>
-                  <dt className="font-medium text-neutral-900">Email</dt>
-                  <dd>{dict.contact.emailAddress}</dd>
-                </div>
-              </dl>
-            </div>
-
             <div>
               <SectionHeading as="h3" centered={false}>
                 {dict.contact.hoursTitle}

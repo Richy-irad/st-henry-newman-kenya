@@ -11,10 +11,10 @@
     "membership": "Iscriviti"
   },
   "home": {
-    "heroTitle": "Associazione St. Henry Newman e Amici",
+    "heroTitle": "Associazione St. John Henry Newman e Amici Kenya",
     "heroSubtitle": "Promuovere la vita, il pensiero e l'eredità di San John Henry Newman in Kenya e nell'Africa orientale",
     "missionTitle": "La nostra missione",
-    "missionText": "L'Associazione St. Henry Newman e Amici è dedicata ad approfondire la comprensione dei contributi teologici, filosofici e letterari del Cardinale John Henry Newman. Con sede a Nairobi, Kenya, fungiamo da ponte tra la saggezza duratura di Newman e la vivace vita intellettuale dell'Africa orientale.",
+    "missionText": "L'Associazione St. John Henry Newman e Amici Kenya è dedicata ad approfondire la comprensione dei contributi teologici, filosofici e letterari del Cardinale John Henry Newman. Con sede a Nairobi, Kenya, fungiamo da ponte tra la saggezza duratura di Newman e la vivace vita intellettuale dell'Africa orientale.",
     "missionText2": "Attraverso conferenze, pubblicazioni, ritiri e scambi accademici, cerchiamo di rendere il pensiero di Newman accessibile a una nuova generazione di pensatori, credenti e cercatori di verità.",
     "eventsTitle": "Prossimi eventi",
     "eventsViewAll": "Vedi tutti gli eventi",
@@ -22,13 +22,16 @@
     "newsViewAll": "Vedi tutte le notizie",
     "ctaTitle": "Diventa membro",
     "ctaText": "Unisciti alla nostra comunità in crescita di studiosi, studenti e amici che condividono la passione per la visione di Newman sulla fede e la ragione.",
-    "ctaButton": "Scopri di più"
+    "ctaButton": "Scopri di più",
+    "heroQuote": "«Vivere è cambiare, ed essere perfetti è aver cambiato spesso.» — St. John Henry Newman",
+    "quote": "«Cor ad cor loquitur.» — St. John Henry Newman",
+    "donateButton": "Dona"
   },
   "about": {
     "heroTitle": "Chi siamo",
     "heroSubtitle": "La nostra storia, missione e le persone dietro l'Associazione",
     "historyTitle": "La nostra storia",
-    "historyText": "Fondata nel 2018, l'Associazione St. Henry Newman e Amici è nata dalla convinzione condivisa tra accademici e clero kenioti che le intuizioni del Cardinale Newman sull'educazione, la coscienza e lo sviluppo della dottrina hanno una profonda rilevanza per l'Africa di oggi.",
+    "historyText": "Fondata nel 2018, l'Associazione St. John Henry Newman e Amici Kenya è nata dalla convinzione condivisa tra accademici e clero kenioti che le intuizioni del Cardinale Newman sull'educazione, la coscienza e lo sviluppo della dottrina hanno una profonda rilevanza per l'Africa di oggi.",
     "historyText2": "La nostra fondazione ha coinciso con la canonizzazione di John Henry Newman il 13 ottobre 2019 da parte di Papa Francesco, un evento che ha energizzato la vita intellettuale cattolica in tutto il mondo.",
     "missionTitle": "Missione e Visione",
     "missionText": "Esistiamo per promuovere lo studio, la diffusione e l'applicazione del pensiero di Newman in Kenya e nella più ampia regione dell'Africa orientale.",
@@ -87,9 +90,6 @@
     "message": "Messaggio",
     "send": "Invia",
     "infoTitle": "Informazioni di contatto",
-    "address": "Newman House, Kenyatta Avenue, Nairobi, Kenya",
-    "phone": "+254 20 123 4567",
-    "emailAddress": "info@newmankenya.org",
     "hoursTitle": "Orari di apertura",
     "hours": "Lunedì – Venerdì: 9:00 – 17:00",
     "hoursSat": "Sabato: 10:00 – 14:00",
@@ -97,7 +97,7 @@
   },
   "membership": {
     "heroTitle": "Diventa membro",
-    "heroSubtitle": "Unisciti all'Associazione St. Henry Newman e Amici",
+    "heroSubtitle": "Unisciti all'Associazione St. John Henry Newman e Amici Kenya",
     "whyJoinTitle": "Perché iscriversi?",
     "whyJoinText": "L'adesione all'Associazione ti mette in contatto con una comunità di studiosi, educatori, clero e fedeli laici che condividono la passione per la visione di Newman.",
     "tiersTitle": "Livelli di adesione",
@@ -105,7 +105,7 @@
     "benefits": "Vantaggi"
   },
   "footer": {
-    "about": "L'Associazione St. Henry Newman e Amici promuove l'eredità di San John Henry Newman in Kenya e nell'Africa orientale.",
+    "about": "L'Associazione St. John Henry Newman e Amici Kenya promuove l'eredità di San John Henry Newman in Kenya e nell'Africa orientale.",
     "quickLinks": "Link rapidi",
     "contactUs": "Contattaci",
     "rights": "Tutti i diritti riservati.",

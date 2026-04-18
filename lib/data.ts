@@ -48,7 +48,7 @@ The celebration concluded with a reception in the basilica gardens, where member
       "A landmark initiative to translate Newman's key works into Swahili, making his thought accessible to millions across East Africa.",
     content: `## Bringing Newman to East Africa
 
-The St. Henry Newman & Friends Association has launched an ambitious project to translate Cardinal Newman's most important works into **Swahili**, the lingua franca of East Africa.
+The St. John Henry Newman & Friends Association Kenya has launched an ambitious project to translate Cardinal Newman's most important works into **Swahili**, the lingua franca of East Africa.
 
 ![Translation Project](https://placeholder.co/800x400/c5973e/ffffff?text=Swahili+Translation)
 
@@ -305,7 +305,7 @@ export const resources: Resource[] = [
     slug: "association-constitution-2024",
     title: "Association Constitution (2024)",
     description:
-      "The governing document of the St. Henry Newman & Friends Association, ratified at the 2024 Annual General Meeting.",
+      "The governing document of the St. John Henry Newman & Friends Association Kenya, ratified at the 2024 Annual General Meeting.",
     type: "documents",
     downloadUrl: "#",
     date: "2024-03-22",

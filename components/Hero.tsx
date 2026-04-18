@@ -5,6 +5,8 @@ type HeroProps = {
   title: string;
   subtitle?: string;
   backgroundImage?: string;
+  portraitImage?: string;
+  quote?: string;
   cta?: { label: string; href: string };
   lang?: string;
 };
@@ -13,43 +15,60 @@ export default function Hero({
   title,
   subtitle,
   backgroundImage,
+  portraitImage,
+  quote,
   cta,
   lang,
 }: HeroProps) {
   return (
-    <section
-      className={`relative flex min-h-[400px] w-full items-center md:min-h-[500px] ${
-        !backgroundImage ? "bg-primary" : ""
-      }`}
-    >
+    <section className="relative flex min-h-100 w-full items-center bg-primary md:min-h-125">
       {backgroundImage && (
         <Image
           src={backgroundImage}
           alt=""
           fill
           preload
-          className="object-cover"
+          className="object-cover mix-blend-multiply opacity-50"
           sizes="100vw"
         />
       )}
-      <div className="absolute inset-0 bg-primary/70" />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/90 md:text-xl">
-            {subtitle}
-          </p>
-        )}
-        {cta && (
-          <div className="mt-8">
-            <Button variant="gold" size="lg" href={cta.href} lang={lang}>
-              {cta.label}
-            </Button>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className={`flex items-center justify-center gap-10 ${portraitImage ? "md:justify-between" : ""}`}>
+          <div className={`text-center ${portraitImage ? "md:text-left md:max-w-xl" : ""}`}>
+            <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+            {subtitle && (
+              <p className={`mt-6 text-lg text-white/90 md:text-xl ${portraitImage ? "" : "mx-auto max-w-2xl"}`}>
+                {subtitle}
+              </p>
+            )}
+            {quote && (
+              <p className="mx-auto mt-8 max-w-xl text-base italic text-accent">
+                {quote}
+              </p>
+            )}
+            {cta && (
+              <div className="mt-10">
+                <Button variant="gold" size="lg" href={cta.href} lang={lang}>
+                  {cta.label}
+                </Button>
+              </div>
+            )}
           </div>
-        )}
+          {portraitImage && (
+            <div className="hidden shrink-0 md:block">
+              <Image
+                src={portraitImage}
+                alt="St. John Henry Newman"
+                width={220}
+                height={300}
+                className="rounded-lg object-cover shadow-lg"
+              />
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

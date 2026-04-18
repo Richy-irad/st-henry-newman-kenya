@@ -19,11 +19,6 @@ type Dict = {
     rights: string;
     partners: string;
   };
-  contact: {
-    address: string;
-    phone: string;
-    emailAddress: string;
-  };
   common: {
     backToTop: string;
   };
@@ -48,7 +43,7 @@ export default function Footer({ dict, lang }: { dict: Dict; lang: string }) {
           {/* About */}
           <div>
             <h3 className="mb-4 font-heading text-lg font-bold text-white">
-              St. Henry Newman
+              St. John Henry Newman & Friends Association Kenya
             </h3>
             <p className="text-sm leading-relaxed text-primary-light">
               {dict.footer.about}
@@ -79,19 +74,19 @@ export default function Footer({ dict, lang }: { dict: Dict; lang: string }) {
             <h3 className="mb-4 font-heading text-lg font-bold text-white">
               {dict.footer.contactUs}
             </h3>
-            <address className="space-y-2 text-sm not-italic text-primary-light">
-              <p>{dict.contact.address}</p>
-              <p>{dict.contact.phone}</p>
-              <p>{dict.contact.emailAddress}</p>
-            </address>
+            <Link
+              href={`/${lang}/contact`}
+              className="text-sm text-primary-light transition-colors hover:text-white"
+            >
+              {dict.nav.contact} →
+            </Link>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="mt-10 flex items-center justify-between border-t border-white/20 pt-6 text-sm text-primary-light">
           <p>
-            &copy; {new Date().getFullYear()} St. Henry Newman &amp; Friends
-            Association. {dict.footer.rights}
+            &copy; {new Date().getFullYear()} St. John Henry Newman &amp; Friends Association Kenya. {dict.footer.rights}
           </p>
           <a
             href="#main-content"
