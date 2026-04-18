@@ -73,9 +73,9 @@ export default function Header({ dict, lang }: { dict: Dict; lang: string }) {
         {/* Logo */}
         <Link
           href={`/${lang}`}
-          className="font-heading text-xl font-bold text-primary"
+          className="font-heading text-base font-bold text-primary leading-tight max-w-55"
         >
-          St. Henry Newman
+          St. John Henry Newman<br />& Friends Association Kenya
         </Link>
 
         {/* Desktop nav */}

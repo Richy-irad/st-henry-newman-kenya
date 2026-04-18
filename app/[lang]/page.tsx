@@ -24,6 +24,8 @@ export default async function Home({
       <Hero
         title={dict.home.heroTitle}
         subtitle={dict.home.heroSubtitle}
+        backgroundImage="/st-john-henry-newman-lndscp.jpg"
+        quote={dict.home.heroQuote}
         cta={{ label: dict.home.ctaButton, href: "/membership" }}
         lang={lang}
       />
@@ -117,8 +119,20 @@ export default async function Home({
           <p className="mx-auto mt-4 max-w-xl text-lg text-white/90">
             {dict.home.ctaText}
           </p>
-          <div className="mt-8">
+          <p className="mx-auto mt-6 max-w-xl text-base italic text-accent">
+            {dict.home.quote}
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Button variant="gold" size="lg" href="/membership" lang={lang}>
+              {dict.home.donateButton}
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              href="/membership"
+              lang={lang}
+              className="border-white! text-white! hover:bg-white/10!"
+            >
               {dict.home.ctaButton}
             </Button>
           </div>
