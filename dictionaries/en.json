@@ -1,5 +1,6 @@
 {
   "nav": {
+    "logoName": "St. John Henry Newman & Friends Association Kenya",
     "home": "Home",
     "about": "About",
     "news": "News",
@@ -54,7 +55,8 @@
     "filterRetreat": "Retreats",
     "filterSymposium": "Symposia",
     "location": "Location",
-    "date": "Date"
+    "date": "Date",
+    "register": "Register"
   },
   "resources": {
     "heroTitle": "Resources",
@@ -73,7 +75,9 @@
     "filterTranslations": "Translations",
     "filterArticles": "Scholarly Articles",
     "author": "Author",
-    "year": "Year"
+    "year": "Year",
+    "readOnline": "Read online",
+    "noResults": "No results found."
   },
   "links": {
     "heroTitle": "Sister Organizations",
@@ -93,7 +97,8 @@
     "hoursTitle": "Opening Hours",
     "hours": "Monday – Friday: 9:00 AM – 5:00 PM",
     "hoursSat": "Saturday: 10:00 AM – 2:00 PM",
-    "hoursSun": "Sunday: Closed"
+    "hoursSun": "Sunday: Closed",
+    "mapPlaceholder": "Map placeholder"
   },
   "membership": {
     "heroTitle": "Become a Member",
@@ -114,6 +119,8 @@
   "common": {
     "learnMore": "Learn More",
     "viewAll": "View All",
-    "backToTop": "Back to Top"
+    "backToTop": "Back to Top",
+    "skipToContent": "Skip to content",
+    "by": "by"
   }
 }

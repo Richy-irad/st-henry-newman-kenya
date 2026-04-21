@@ -12,6 +12,8 @@ type FilterLabels = {
   articles: string;
   author: string;
   year: string;
+  readOnline: string;
+  noResults: string;
 };
 
 const categories: (LibraryCategory | "all")[] = ["all", "works", "translations", "articles"];
@@ -97,7 +99,7 @@ export default function LibraryFilter({
                 rel="noopener noreferrer"
                 className="mt-3 inline-block text-sm font-medium text-primary hover:text-primary-dark"
               >
-                Read online &rarr;
+                {labels.readOnline} &rarr;
               </a>
             )}
           </Card>
@@ -105,7 +107,7 @@ export default function LibraryFilter({
       </div>
 
       {filtered.length === 0 && (
-        <p className="mt-10 text-center text-neutral-600">No results found.</p>
+        <p className="mt-10 text-center text-neutral-600">{labels.noResults}</p>
       )}
     </>
   );

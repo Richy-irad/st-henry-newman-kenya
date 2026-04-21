@@ -38,13 +38,13 @@ export default async function NewsDetailPage({
 
       <div className="mt-4 flex items-center gap-4 text-sm text-neutral-600">
         <time dateTime={article.date}>
-          {new Date(article.date).toLocaleDateString("en-GB", {
+          {new Date(article.date).toLocaleDateString(lang, {
             day: "numeric",
             month: "long",
             year: "numeric",
           })}
         </time>
-        {article.author && <span>by {article.author}</span>}
+        {article.author && <span>{dict.common.by} {article.author}</span>}
       </div>
 
       <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-[var(--radius)]">

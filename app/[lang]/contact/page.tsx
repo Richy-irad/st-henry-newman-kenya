@@ -40,7 +40,7 @@ export default async function ContactPage({
 
             {/* Map placeholder */}
             <div className="aspect-video w-full overflow-hidden rounded-[var(--radius)] bg-neutral-200 flex items-center justify-center">
-              <span className="text-sm text-neutral-600">Map placeholder</span>
+              <span className="text-sm text-neutral-600">{dict.contact.mapPlaceholder}</span>
             </div>
           </div>
         </div>
