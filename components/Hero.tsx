@@ -21,17 +21,18 @@ export default function Hero({
   lang,
 }: HeroProps) {
   return (
-    <section className="relative flex min-h-100 w-full items-center bg-primary md:min-h-125">
+    <section className="relative flex min-h-screen w-full items-center bg-primary">
       {backgroundImage && (
         <Image
           src={backgroundImage}
           alt=""
           fill
           preload
-          className="object-cover mix-blend-multiply opacity-50"
+          className="object-cover"
           sizes="100vw"
         />
       )}
+      <div className="absolute inset-0 bg-black/50" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-center gap-10 ${portraitImage ? "md:justify-between" : ""}`}>
@@ -51,7 +52,7 @@ export default function Hero({
             )}
             {cta && (
               <div className="mt-10">
-                <Button variant="gold" size="lg" href={cta.href} lang={lang}>
+                <Button variant="primary" size="lg" href={cta.href} lang={lang}>
                   {cta.label}
                 </Button>
               </div>

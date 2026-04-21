@@ -1,5 +1,6 @@
 {
   "nav": {
+    "logoName": "Associazione St. John Henry Newman e Amici Kenya",
     "home": "Home",
     "about": "Chi siamo",
     "news": "Notizie",
@@ -54,7 +55,8 @@
     "filterRetreat": "Ritiri",
     "filterSymposium": "Simposi",
     "location": "Luogo",
-    "date": "Data"
+    "date": "Data",
+    "register": "Registrati"
   },
   "resources": {
     "heroTitle": "Risorse",
@@ -73,7 +75,9 @@
     "filterTranslations": "Traduzioni",
     "filterArticles": "Articoli accademici",
     "author": "Autore",
-    "year": "Anno"
+    "year": "Anno",
+    "readOnline": "Leggi online",
+    "noResults": "Nessun risultato trovato."
   },
   "links": {
     "heroTitle": "Organizzazioni sorelle",
@@ -93,7 +97,8 @@
     "hoursTitle": "Orari di apertura",
     "hours": "Lunedì – Venerdì: 9:00 – 17:00",
     "hoursSat": "Sabato: 10:00 – 14:00",
-    "hoursSun": "Domenica: Chiuso"
+    "hoursSun": "Domenica: Chiuso",
+    "mapPlaceholder": "Segnaposto mappa"
   },
   "membership": {
     "heroTitle": "Diventa membro",
@@ -114,6 +119,8 @@
   "common": {
     "learnMore": "Scopri di più",
     "viewAll": "Vedi tutto",
-    "backToTop": "Torna in cima"
+    "backToTop": "Torna in cima",
+    "skipToContent": "Vai al contenuto",
+    "by": "di"
   }
 }

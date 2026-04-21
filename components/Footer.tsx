@@ -2,6 +2,7 @@ import Link from "next/link";
 
 type Dict = {
   nav: {
+    logoName: string;
     home: string;
     about: string;
     news: string;
@@ -43,7 +44,7 @@ export default function Footer({ dict, lang }: { dict: Dict; lang: string }) {
           {/* About */}
           <div>
             <h3 className="mb-4 font-heading text-lg font-bold text-white">
-              St. John Henry Newman & Friends Association Kenya
+              {dict.nav.logoName}
             </h3>
             <p className="text-sm leading-relaxed text-primary-light">
               {dict.footer.about}
@@ -86,7 +87,7 @@ export default function Footer({ dict, lang }: { dict: Dict; lang: string }) {
         {/* Bottom bar */}
         <div className="mt-10 flex items-center justify-between border-t border-white/20 pt-6 text-sm text-primary-light">
           <p>
-            &copy; {new Date().getFullYear()} St. John Henry Newman &amp; Friends Association Kenya. {dict.footer.rights}
+            &copy; {new Date().getFullYear()} {dict.nav.logoName}. {dict.footer.rights}
           </p>
           <a
             href="#main-content"

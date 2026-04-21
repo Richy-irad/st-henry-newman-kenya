@@ -23,6 +23,7 @@ export default async function EventsPage({
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <EventFilter
           events={events}
+          locale={lang}
           labels={{
             all: dict.events.filterAll,
             Conference: dict.events.filterConference,
@@ -30,6 +31,7 @@ export default async function EventsPage({
             Symposium: dict.events.filterSymposium,
             location: dict.events.location,
             date: dict.events.date,
+            register: dict.events.register,
           }}
         />
       </section>

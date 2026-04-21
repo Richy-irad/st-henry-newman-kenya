@@ -29,6 +29,8 @@ export default async function LibraryPage({
             articles: dict.library.filterArticles,
             author: dict.library.author,
             year: dict.library.year,
+            readOnline: dict.library.readOnline,
+            noResults: dict.library.noResults,
           }}
         />
       </section>

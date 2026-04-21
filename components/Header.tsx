@@ -7,6 +7,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 type Dict = {
   nav: {
+    logoName: string;
     home: string;
     about: string;
     news: string;
@@ -75,7 +76,7 @@ export default function Header({ dict, lang }: { dict: Dict; lang: string }) {
           href={`/${lang}`}
           className="font-heading text-base font-bold text-primary leading-tight max-w-55"
         >
-          St. John Henry Newman<br />& Friends Association Kenya
+          {dict.nav.logoName}
         </Link>
 
         {/* Desktop nav */}

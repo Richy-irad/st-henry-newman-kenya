@@ -11,6 +11,7 @@ type FilterLabels = {
   Symposium: string;
   location: string;
   date: string;
+  register: string;
 };
 
 const filters: (EventType | "all")[] = ["all", "Conference", "Retreat", "Symposium"];
@@ -25,9 +26,11 @@ const filterLabelKeys: Record<EventType | "all", keyof FilterLabels> = {
 export default function EventFilter({
   events,
   labels,
+  locale,
 }: {
   events: Event[];
   labels: FilterLabels;
+  locale: string;
 }) {
   const [active, setActive] = useState<EventType | "all">("all");
 
@@ -69,7 +72,7 @@ export default function EventFilter({
                 <span className="font-medium">{labels.location}:</span> {event.location}
               </p>
               <p className="text-accent font-medium">
-                {new Date(event.date).toLocaleDateString("en-GB", {
+                {new Date(event.date).toLocaleDateString(locale, {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
@@ -77,7 +80,7 @@ export default function EventFilter({
                 {event.endDate && (
                   <>
                     {" – "}
-                    {new Date(event.endDate).toLocaleDateString("en-GB", {
+                    {new Date(event.endDate).toLocaleDateString(locale, {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
@@ -93,7 +96,7 @@ export default function EventFilter({
                 rel="noopener noreferrer"
                 className="mt-4 inline-block rounded-[var(--radius)] bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:brightness-110"
               >
-                Register &rarr;
+                {labels.register} &rarr;
               </a>
             )}
           </Card>
