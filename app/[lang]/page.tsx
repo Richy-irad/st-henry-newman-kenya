@@ -24,7 +24,7 @@ export default async function Home({
       <Hero
         title={dict.home.heroTitle}
         subtitle={dict.home.heroSubtitle}
-        backgroundImage="/st-john-henry-newman-lndscp.jpg"
+        backgroundImage="/st-john-henry-newman.jpg"
         quote={dict.home.heroQuote}
         cta={{ label: dict.home.ctaButton, href: "/membership" }}
         lang={lang}

@@ -23,13 +23,9 @@ export default function Hero({
   return (
     <section className="relative flex min-h-screen w-full items-center bg-primary">
       {backgroundImage && (
-        <Image
-          src={backgroundImage}
-          alt=""
-          fill
-          preload
-          className="object-cover"
-          sizes="100vw"
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:bg-repeat-x lg:[background-size:auto_100%] lg:bg-top"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
         />
       )}
       <div className="absolute inset-0 bg-black/50" />
