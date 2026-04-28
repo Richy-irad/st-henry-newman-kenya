@@ -9,6 +9,7 @@ type HeroProps = {
   quote?: string;
   cta?: { label: string; href: string };
   lang?: string;
+  variant?: "home" | "others";
 };
 
 export default function Hero({
@@ -19,25 +20,34 @@ export default function Hero({
   quote,
   cta,
   lang,
+  variant,
 }: HeroProps) {
   return (
-    <section className="relative flex min-h-screen w-full items-center bg-primary">
+    <section
+      className={`relative flex ${variant === "home" ? "min-h-screen" : ""} w-full items-center bg-primary`}
+    >
       {backgroundImage && (
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:bg-repeat-x lg:[background-size:auto_100%] lg:bg-top"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:bg-repeat-x lg:bg-size-[auto_100%] lg:bg-top"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
       )}
       <div className="absolute inset-0 bg-black/50" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-center gap-10 ${portraitImage ? "md:justify-between" : ""}`}>
-          <div className={`text-center ${portraitImage ? "md:text-left md:max-w-xl" : ""}`}>
+        <div
+          className={`flex items-center justify-center gap-10 ${portraitImage ? "md:justify-between" : ""}`}
+        >
+          <div
+            className={`text-center ${portraitImage ? "md:text-left md:max-w-xl" : ""}`}
+          >
             <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
               {title}
             </h1>
             {subtitle && (
-              <p className={`mt-6 text-lg text-white/90 md:text-xl ${portraitImage ? "" : "mx-auto max-w-2xl"}`}>
+              <p
+                className={`mt-6 text-lg text-white/90 md:text-xl ${portraitImage ? "" : "mx-auto max-w-2xl"}`}
+              >
                 {subtitle}
               </p>
             )}

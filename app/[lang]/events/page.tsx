@@ -3,7 +3,7 @@ import type { Locale } from "../dictionaries";
 import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import EventFilter from "@/components/EventFilter";
-import { getUpcomingEvents } from "@/lib/data";
+import { getUpcomingEvents } from "@/lib/sanity/queries";
 
 export default async function EventsPage({
   params,
@@ -14,7 +14,7 @@ export default async function EventsPage({
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
 
-  const events = getUpcomingEvents();
+  const events = await getUpcomingEvents();
 
   return (
     <>

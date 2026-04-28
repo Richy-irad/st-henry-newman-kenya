@@ -3,7 +3,7 @@ import type { Locale } from "../dictionaries";
 import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import Card from "@/components/Card";
-import { getLatestNews } from "@/lib/data";
+import { getLatestNews } from "@/lib/sanity/queries";
 
 export default async function NewsPage({
   params,
@@ -14,7 +14,7 @@ export default async function NewsPage({
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
 
-  const news = getLatestNews();
+  const news = await getLatestNews();
 
   return (
     <>

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import Card from "@/components/Card";
-import { getResourcesByType } from "@/lib/data";
+import { getResourcesByType } from "@/lib/sanity/queries";
 import type { ResourceType } from "@/lib/types";
 
 const sections: { type: ResourceType; dictKey: "publications" | "studies" | "documents" }[] = [
@@ -21,14 +21,19 @@ export default async function ResourcesPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
+  const sectionData = await Promise.all(
+    sections.map(async ({ type, dictKey }) => ({
+      type,
+      dictKey,
+      items: await getResourcesByType(type),
+    }))
+  );
 
   return (
     <>
       <Hero title={dict.resources.heroTitle} subtitle={dict.resources.heroSubtitle} />
 
-      {sections.map(({ type, dictKey }) => {
-        const items = getResourcesByType(type);
-        return (
+      {sectionData.map(({ type, dictKey, items }) => (
           <section
             key={type}
             className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"
@@ -64,8 +69,7 @@ export default async function ResourcesPage({
               ))}
             </div>
           </section>
-        );
-      })}
+      ))}
     </>
   );
 }

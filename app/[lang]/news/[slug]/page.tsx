@@ -1,13 +1,14 @@
 import { getDictionary, hasLocale } from "../../dictionaries";
 import type { Locale } from "../../dictionaries";
 import { notFound } from "next/navigation";
-import { getNewsBySlug, newsItems } from "@/lib/data";
+import { getNewsBySlug, getAllNewsSlugs } from "@/lib/sanity/queries";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
-export function generateStaticParams() {
-  return newsItems.map((item) => ({ slug: item.slug }));
+export async function generateStaticParams() {
+  const slugs = await getAllNewsSlugs();
+  return slugs.map(({ slug }) => ({ slug }));
 }
 
 export default async function NewsDetailPage({
@@ -18,7 +19,7 @@ export default async function NewsDetailPage({
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
 
-  const article = getNewsBySlug(slug);
+  const article = await getNewsBySlug(slug);
   if (!article) notFound();
 
   const dict = await getDictionary(lang as Locale);
