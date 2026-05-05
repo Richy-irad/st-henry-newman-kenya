@@ -22,9 +22,62 @@ export default function Hero({
   lang,
   variant,
 }: HeroProps) {
+  if (variant === "home") {
+    return (
+      <section className="relative flex min-h-screen w-full">
+        {/* Mobile: full-bleed background image with overlay */}
+        {backgroundImage && (
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:hidden"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+        )}
+        <div className="absolute inset-0 bg-black/50 lg:hidden" />
+
+        {/* Left: content */}
+        <div className="relative z-10 flex w-full items-center lg:w-1/2 lg:bg-primary">
+          <div className="w-full px-8 py-20 sm:px-12 lg:px-16">
+            <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+            {subtitle && (
+              <p className="mt-6 text-lg text-white/90 md:text-xl">
+                {subtitle}
+              </p>
+            )}
+            {quote && (
+              <p className="mt-8 text-base italic text-accent">{quote}</p>
+            )}
+            {cta && (
+              <div className="mt-10">
+                <Button variant="gold" size="lg" href={cta.href} lang={lang}>
+                  {cta.label}
+                </Button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Right: image fills full height (desktop only) */}
+        {backgroundImage && (
+          <div className="relative hidden overflow-hidden lg:block lg:w-1/2">
+            <Image
+              src={backgroundImage}
+              alt="St. John Henry Newman"
+              fill
+              sizes="50vw"
+              className="object-cover object-center"
+              priority
+            />
+          </div>
+        )}
+      </section>
+    );
+  }
+
   return (
     <section
-      className={`relative flex ${variant === "home" ? "min-h-screen" : ""} w-full items-center bg-primary`}
+      className="relative flex w-full items-center bg-primary"
     >
       {backgroundImage && (
         <div
