@@ -3,7 +3,7 @@ import type { Locale } from "../dictionaries";
 import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import LibraryFilter from "@/components/LibraryFilter";
-import { libraryItems } from "@/lib/data";
+import { getLibraryItems } from "@/lib/sanity/queries";
 
 export default async function LibraryPage({
   params,
@@ -13,6 +13,7 @@ export default async function LibraryPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
+  const libraryItems = await getLibraryItems();
 
   return (
     <>

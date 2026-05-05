@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
-import { getLatestNews, getUpcomingEvents } from "@/lib/data";
+import { getLatestNews, getUpcomingEvents } from "@/lib/sanity/queries";
 
 export default async function Home({
   params,
@@ -16,8 +16,8 @@ export default async function Home({
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
 
-  const latestNews = getLatestNews(3);
-  const upcomingEvents = getUpcomingEvents(3);
+  const latestNews = await getLatestNews(3);
+  const upcomingEvents = await getUpcomingEvents(3);
 
   return (
     <>
@@ -28,6 +28,7 @@ export default async function Home({
         quote={dict.home.heroQuote}
         cta={{ label: dict.home.ctaButton, href: "/membership" }}
         lang={lang}
+        variant="home"
       />
 
       {/* Mission section */}
@@ -115,7 +116,9 @@ export default async function Home({
       {/* Membership CTA */}
       <section className="bg-primary px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold text-white">{dict.home.ctaTitle}</h2>
+          <h2 className="text-3xl font-bold text-white">
+            {dict.home.ctaTitle}
+          </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-white/90">
             {dict.home.ctaText}
           </p>

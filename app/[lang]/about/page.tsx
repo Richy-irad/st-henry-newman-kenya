@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import Card from "@/components/Card";
-import { teamMembers } from "@/lib/data";
+import { getTeamMembers } from "@/lib/sanity/queries";
 import Image from "next/image";
 
 export default async function AboutPage({
@@ -15,6 +15,7 @@ export default async function AboutPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
+  const teamMembers = await getTeamMembers();
 
   return (
     <>

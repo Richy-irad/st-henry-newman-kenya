@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
-import { membershipTiers } from "@/lib/data";
+import { getMembershipTiers } from "@/lib/sanity/queries";
 
 export default async function MembershipPage({
   params,
@@ -15,6 +15,7 @@ export default async function MembershipPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
+  const membershipTiers = await getMembershipTiers();
 
   return (
     <>
@@ -35,7 +36,7 @@ export default async function MembershipPage({
       <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeading>{dict.membership.tiersTitle}</SectionHeading>
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {membershipTiers.map((tier) => (
               <Card
                 key={tier.name}
