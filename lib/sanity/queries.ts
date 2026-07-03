@@ -54,7 +54,7 @@ export async function getAllNewsSlugs(): Promise<{ slug: string }[]> {
 export async function getUpcomingEvents(count?: number): Promise<Event[]> {
   const limit = count ? `[0...${count}]` : "";
   return sanityClient.fetch<Event[]>(
-    `*[_type == "event" && dateTime(date) >= dateTime(now())] | order(date asc) ${limit} {
+    `*[_type == "event" && date >= now()] | order(date desc) ${limit} {
       "slug": slug.current,
       title, description, type, date, endDate, location,
       "image": ${IMAGE_URL},
