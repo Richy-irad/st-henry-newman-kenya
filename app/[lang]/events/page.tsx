@@ -3,7 +3,9 @@ import type { Locale } from "../dictionaries";
 import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import EventFilter from "@/components/EventFilter";
-import { getUpcomingEvents } from "@/lib/sanity/queries";
+import { getUpcomingEvents, getAgendaItems } from "@/lib/sanity/queries";
+import AgendaList from "@/components/AgendaList";
+import SectionHeading from "@/components/SectionHeading";
 
 export default async function EventsPage({
   params,
@@ -15,10 +17,20 @@ export default async function EventsPage({
   const dict = await getDictionary(lang as Locale);
 
   const events = await getUpcomingEvents();
+  const agendaItems = await getAgendaItems();
 
   return (
     <>
       <Hero title={dict.events.heroTitle} subtitle={dict.events.heroSubtitle} />
+
+      {agendaItems.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <SectionHeading>{dict.events.agendaTitle}</SectionHeading>
+          <div className="mt-10">
+            <AgendaList items={agendaItems} locale={lang} />
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <EventFilter

@@ -8,6 +8,8 @@ import type {
   LibraryItem,
   SisterOrg,
   MembershipTier,
+  AgendaItem,
+  Celebration,
   ResourceType,
 } from "@/lib/types";
 
@@ -128,5 +130,54 @@ export async function getMembershipTiers(): Promise<MembershipTier[]> {
     `*[_type == "membershipTier"] | order(order asc) {
       name, price, benefits, highlighted
     }`,
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Agenda
+// ---------------------------------------------------------------------------
+
+export async function getAgendaItems(count?: number): Promise<AgendaItem[]> {
+  const all = await sanityClient.fetch<AgendaItem[]>(
+    `*[_type == "agendaItem"] | order(startDate asc) {
+      "slug": slug.current,
+      title, startDate, endDate, time, location, followUrl, followNote, content,
+      "celebration": celebration->{name, "slug": slug.current}
+    }`,
+  );
+  const today = new Date().toISOString().slice(0, 10);
+  const past = all.filter((i) => (i.endDate ?? i.startDate) < today);
+  const upcoming = all.filter((i) => (i.endDate ?? i.startDate) >= today);
+  const sorted = [...past, ...upcoming];
+  return count ? sorted.slice(0, count) : sorted;
+}
+
+export async function getAgendaItemBySlug(
+  slug: string,
+): Promise<AgendaItem | null> {
+  return sanityClient.fetch<AgendaItem | null>(
+    `*[_type == "agendaItem" && slug.current == $slug][0] {
+      "slug": slug.current,
+      title, startDate, endDate, time, location, followUrl, followNote, content,
+      "celebration": celebration->{name, "slug": slug.current}
+    }`,
+    { slug },
+  );
+}
+
+export async function getAllAgendaSlugs(): Promise<{ slug: string }[]> {
+  return sanityClient.fetch<{ slug: string }[]>(
+    `*[_type == "agendaItem"] { "slug": slug.current }`,
+  );
+}
+
+export async function getCelebrationBySlug(
+  slug: string,
+): Promise<Celebration | null> {
+  return sanityClient.fetch<Celebration | null>(
+    `*[_type == "celebration" && slug.current == $slug][0] {
+      name, "slug": slug.current, description
+    }`,
+    { slug },
   );
 }

@@ -65,3 +65,22 @@ export interface MembershipTier {
   benefits: string[]
   highlighted?: boolean
 }
+
+export interface Celebration {
+  name: string
+  slug: string
+  description?: string
+}
+
+export interface AgendaItem {
+  slug: string
+  title: string
+  startDate: string
+  endDate?: string
+  time?: string
+  location: string
+  followUrl?: string
+  followNote?: string
+  content?: string
+  celebration?: { name: string; slug: string }
+}
