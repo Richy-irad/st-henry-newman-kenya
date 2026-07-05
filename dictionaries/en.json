@@ -19,6 +19,8 @@
     "missionText2": "Through conferences, publications, retreats, and scholarly exchange, we seek to make Newman's thought accessible to a new generation of thinkers, believers, and seekers of truth.",
     "eventsTitle": "Upcoming Events",
     "eventsViewAll": "View All Events",
+    "agendaTitle": "Newman Celebration Agenda",
+    "agendaViewAll": "View Full Agenda",
     "newsTitle": "Latest News",
     "newsViewAll": "View All News",
     "ctaTitle": "Become a Member",
@@ -56,7 +58,9 @@
     "filterSymposium": "Symposia",
     "location": "Location",
     "date": "Date",
-    "register": "Register"
+    "register": "Register",
+    "agendaTitle": "Newman Celebration Agenda",
+    "backToEvents": "Back to Events"
   },
   "resources": {
     "heroTitle": "Resources",

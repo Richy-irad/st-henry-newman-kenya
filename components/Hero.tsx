@@ -32,6 +32,7 @@ export default function Hero({
             style={{ backgroundImage: `url(${backgroundImage})` }}
           />
         )}
+        {/* add an overlay to darken background image */}
         <div className="absolute inset-0 bg-black/50 lg:hidden" />
 
         {/* Left: content */}
@@ -76,16 +77,13 @@ export default function Hero({
   }
 
   return (
-    <section
-      className="relative flex w-full items-center bg-primary"
-    >
+    <section className="relative flex w-full items-center bg-primary-dark">
       {backgroundImage && (
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:bg-repeat-x lg:bg-size-[auto_100%] lg:bg-top"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
       )}
-      <div className="absolute inset-0 bg-black/50" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div

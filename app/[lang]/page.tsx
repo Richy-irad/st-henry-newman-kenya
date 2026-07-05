@@ -5,7 +5,12 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
-import { getLatestNews, getUpcomingEvents } from "@/lib/sanity/queries";
+import {
+  getLatestNews,
+  getUpcomingEvents,
+  getAgendaItems,
+} from "@/lib/sanity/queries";
+import AgendaList from "@/components/AgendaList";
 
 export default async function Home({
   params,
@@ -18,6 +23,7 @@ export default async function Home({
 
   const latestNews = await getLatestNews(3);
   const upcomingEvents = await getUpcomingEvents(3);
+  const agendaItems = await getAgendaItems(5);
 
   return (
     <>
@@ -39,6 +45,21 @@ export default async function Home({
           <p>{dict.home.missionText2}</p>
         </div>
       </section>
+
+      {/* Newman Celebration Agenda */}
+      {agendaItems.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <SectionHeading>{dict.home.agendaTitle}</SectionHeading>
+          <div className="mt-10">
+            <AgendaList items={agendaItems} locale={lang} />
+          </div>
+          <div className="mt-8 text-center">
+            <Button variant="secondary" href="/events" lang={lang}>
+              {dict.home.agendaViewAll}
+            </Button>
+          </div>
+        </section>
+      )}
 
       {/* Upcoming Events */}
       <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">

@@ -19,6 +19,8 @@
     "missionText2": "Attraverso conferenze, pubblicazioni, ritiri e scambi accademici, cerchiamo di rendere il pensiero di Newman accessibile a una nuova generazione di pensatori, credenti e cercatori di verità.",
     "eventsTitle": "Prossimi eventi",
     "eventsViewAll": "Vedi tutti gli eventi",
+    "agendaTitle": "Agenda della celebrazione di Newman",
+    "agendaViewAll": "Vedi l'agenda completa",
     "newsTitle": "Ultime notizie",
     "newsViewAll": "Vedi tutte le notizie",
     "ctaTitle": "Diventa membro",
@@ -56,7 +58,9 @@
     "filterSymposium": "Simposi",
     "location": "Luogo",
     "date": "Data",
-    "register": "Registrati"
+    "register": "Registrati",
+    "agendaTitle": "Agenda della celebrazione di Newman",
+    "backToEvents": "Torna agli eventi"
   },
   "resources": {
     "heroTitle": "Risorse",
