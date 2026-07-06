@@ -50,15 +50,17 @@ export default async function AboutPage({
           {teamMembers.map((member) => (
             <Card key={member.name}>
               <div className="flex flex-col items-center text-center">
-                <div className="relative h-24 w-24 overflow-hidden rounded-full">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    sizes="96px"
-                  />
-                </div>
+                {member.image && (
+                  <div className="relative h-24 w-24 overflow-hidden rounded-full">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      sizes="96px"
+                    />
+                  </div>
+                )}
                 <h3 className="mt-4 text-lg font-semibold text-neutral-900">
                   {member.name}
                 </h3>

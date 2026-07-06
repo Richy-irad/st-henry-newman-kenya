@@ -13,7 +13,7 @@ import type {
   ResourceType,
 } from "@/lib/types";
 
-const IMAGE_URL = `coalesce(image.asset->url, "")`;
+const IMAGE_URL = `image.asset->url`;
 
 // ---------------------------------------------------------------------------
 // News
@@ -159,7 +159,9 @@ export async function getAgendaItemBySlug(
     `*[_type == "agendaItem" && slug.current == $slug][0] {
       "slug": slug.current,
       title, startDate, endDate, time, location, followUrl, followNote, content,
-      "celebration": celebration->{name, "slug": slug.current}
+      "celebration": celebration->{name, "slug": slug.current},
+      "coverImage": coverImage.asset->url,
+      "gallery": gallery[]{ "url": asset->url, caption }
     }`,
     { slug },
   );

@@ -27,7 +27,7 @@ export default async function NewsPage({
               key={item.slug}
               href={`/news/${item.slug}`}
               lang={lang}
-              image={{ src: item.image, alt: item.title }}
+              image={item.image ? { src: item.image, alt: item.title } : undefined}
             >
               <p className="text-sm text-accent font-medium">
                 {new Date(item.date).toLocaleDateString("en-GB", {

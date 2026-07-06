@@ -71,7 +71,7 @@ export default async function Home({
                 key={event.slug}
                 href={`/events`}
                 lang={lang}
-                image={{ src: event.image, alt: event.title }}
+                image={event.image ? { src: event.image, alt: event.title } : undefined}
               >
                 <span className="mb-2 inline-block rounded-full bg-primary-tint px-3 py-0.5 text-xs font-medium text-primary">
                   {event.type}
@@ -109,7 +109,7 @@ export default async function Home({
               key={item.slug}
               href={`/news/${item.slug}`}
               lang={lang}
-              image={{ src: item.image, alt: item.title }}
+              image={item.image ? { src: item.image, alt: item.title } : undefined}
             >
               <p className="text-sm text-accent font-medium">
                 {new Date(item.date).toLocaleDateString("en-GB", {

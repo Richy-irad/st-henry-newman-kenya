@@ -24,7 +24,7 @@ export default async function LinksPage({
           {sisterOrgs.map((org) => (
             <Card
               key={org.name}
-              image={{ src: org.image, alt: org.name }}
+              image={org.image ? { src: org.image, alt: org.name } : undefined}
               padding="lg"
             >
               <h3 className="text-lg font-semibold text-neutral-900">

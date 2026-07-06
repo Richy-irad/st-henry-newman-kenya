@@ -8,7 +8,7 @@ export interface NewsItem {
   excerpt: string
   content: string
   date: string
-  image: string
+  image: string | null
   author?: string
 }
 
@@ -20,7 +20,7 @@ export interface Event {
   date: string
   endDate?: string
   location: string
-  image: string
+  image: string | null
   registrationUrl?: string
 }
 
@@ -28,7 +28,7 @@ export interface TeamMember {
   name: string
   role: string
   bio: string
-  image: string
+  image: string | null
 }
 
 export interface Resource {
@@ -55,7 +55,7 @@ export interface SisterOrg {
   name: string
   description: string
   url: string
-  image: string
+  image: string | null
   country: string
 }
 
@@ -82,5 +82,7 @@ export interface AgendaItem {
   followUrl?: string
   followNote?: string
   content?: string
+  coverImage?: string | null
+  gallery?: { url: string; caption?: string }[]
   celebration?: { name: string; slug: string }
 }
