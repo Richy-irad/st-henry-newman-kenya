@@ -58,7 +58,7 @@ export default function EventFilter({
         {filtered.map((event) => (
           <Card
             key={event.slug}
-            image={{ src: event.image, alt: event.title }}
+            image={event.image ? { src: event.image, alt: event.title } : undefined}
           >
             <span className="mb-2 inline-block rounded-full bg-primary-tint px-3 py-0.5 text-xs font-medium text-primary">
               {event.type}

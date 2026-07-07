@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import Card from "@/components/Card";
 import { getLatestNews } from "@/lib/sanity/queries";
+import { translateNewsItems } from "@/lib/translate";
 
 export default async function NewsPage({
   params,
@@ -14,7 +15,7 @@ export default async function NewsPage({
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
 
-  const news = await getLatestNews();
+  const news = await translateNewsItems(await getLatestNews(), lang);
 
   return (
     <>
@@ -27,7 +28,7 @@ export default async function NewsPage({
               key={item.slug}
               href={`/news/${item.slug}`}
               lang={lang}
-              image={{ src: item.image, alt: item.title }}
+              image={item.image ? { src: item.image, alt: item.title } : undefined}
             >
               <p className="text-sm text-accent font-medium">
                 {new Date(item.date).toLocaleDateString("en-GB", {

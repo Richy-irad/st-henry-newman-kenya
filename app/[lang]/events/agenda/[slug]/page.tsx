@@ -2,8 +2,10 @@ import { getDictionary, hasLocale } from "../../../dictionaries";
 import type { Locale } from "../../../dictionaries";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Markdown from "react-markdown";
 import { getAgendaItemBySlug, getAllAgendaSlugs } from "@/lib/sanity/queries";
+import { translateAgendaItem } from "@/lib/translate";
 
 export async function generateStaticParams() {
   const slugs = await getAllAgendaSlugs();
@@ -27,8 +29,9 @@ export default async function AgendaDetailPage({
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
 
-  const item = await getAgendaItemBySlug(slug);
-  if (!item) notFound();
+  const rawItem = await getAgendaItemBySlug(slug);
+  if (!rawItem) notFound();
+  const item = await translateAgendaItem(rawItem, lang);
 
   const dict = await getDictionary(lang as Locale);
 
@@ -80,12 +83,71 @@ export default async function AgendaDetailPage({
 
       <hr className="my-10 border-neutral-200" />
 
+      {item.coverImage && (
+        <div className="relative aspect-video w-full overflow-hidden rounded-[var(--radius)]">
+          <Image
+            src={item.coverImage}
+            alt={item.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
+        </div>
+      )}
+
       {item.content ? (
-        <div className="prose prose-neutral max-w-none prose-headings:font-heading prose-headings:text-neutral-900 prose-a:text-primary prose-img:rounded-[var(--radius)]">
-          <Markdown>{item.content}</Markdown>
+        <div className="prose prose-neutral mt-10 max-w-none prose-headings:font-heading prose-headings:text-neutral-900 prose-a:text-primary prose-img:rounded-[var(--radius)]">
+          <Markdown
+            components={{
+              img({ src, alt }) {
+                if (!src || typeof src !== "string") return null;
+                return (
+                  <span className="relative block w-full aspect-video my-4 overflow-hidden rounded-[var(--radius)]">
+                    <Image
+                      src={src}
+                      alt={alt ?? ""}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 768px"
+                    />
+                  </span>
+                );
+              },
+            }}
+          >
+            {item.content}
+          </Markdown>
         </div>
       ) : (
         <p className="text-neutral-500 italic">No write-up yet for this event.</p>
+      )}
+
+      {item.gallery && item.gallery.length > 0 && (
+        <section className="mt-16">
+          <h2 className="mb-6 font-heading text-xl font-bold text-neutral-900">
+            Photos
+          </h2>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {item.gallery.map((photo, index) => (
+              <figure key={index} className="overflow-hidden rounded-[var(--radius)]">
+                <div className="relative aspect-square w-full">
+                  <Image
+                    src={photo.url}
+                    alt={photo.caption ?? `Photo ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                  />
+                </div>
+                {photo.caption && (
+                  <figcaption className="mt-1 text-center text-xs text-neutral-500">
+                    {photo.caption}
+                  </figcaption>
+                )}
+              </figure>
+            ))}
+          </div>
+        </section>
       )}
     </article>
   );

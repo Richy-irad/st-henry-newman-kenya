@@ -2,6 +2,7 @@ import { getDictionary, hasLocale } from "../../dictionaries";
 import type { Locale } from "../../dictionaries";
 import { notFound } from "next/navigation";
 import { getNewsBySlug, getAllNewsSlugs } from "@/lib/sanity/queries";
+import { translateNewsItem } from "@/lib/translate";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -19,8 +20,9 @@ export default async function NewsDetailPage({
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
 
-  const article = await getNewsBySlug(slug);
-  if (!article) notFound();
+  const rawArticle = await getNewsBySlug(slug);
+  if (!rawArticle) notFound();
+  const article = await translateNewsItem(rawArticle, lang);
 
   const dict = await getDictionary(lang as Locale);
 
@@ -48,18 +50,39 @@ export default async function NewsDetailPage({
         {article.author && <span>{dict.common.by} {article.author}</span>}
       </div>
 
-      <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-[var(--radius)]">
-        <Image
-          src={article.image}
-          alt={article.title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 768px"
-        />
-      </div>
+      {article.image && (
+        <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-[var(--radius)]">
+          <Image
+            src={article.image}
+            alt={article.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
+        </div>
+      )}
 
       <div className="prose prose-neutral mt-10 max-w-none prose-headings:font-heading prose-headings:text-neutral-900 prose-a:text-primary prose-img:rounded-[var(--radius)]">
-        <Markdown>{article.content}</Markdown>
+        <Markdown
+          components={{
+            img({ src, alt }) {
+              if (!src || typeof src !== "string") return null;
+              return (
+                <span className="relative block w-full aspect-video my-4 overflow-hidden rounded-[var(--radius)]">
+                  <Image
+                    src={src}
+                    alt={alt ?? ""}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 768px"
+                  />
+                </span>
+              );
+            },
+          }}
+        >
+          {article.content}
+        </Markdown>
       </div>
     </article>
   );

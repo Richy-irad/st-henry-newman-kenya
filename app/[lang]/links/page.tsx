@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import Card from "@/components/Card";
 import { getSisterOrgs } from "@/lib/sanity/queries";
+import { translateSisterOrgs } from "@/lib/translate";
 
 export default async function LinksPage({
   params,
@@ -13,7 +14,7 @@ export default async function LinksPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
-  const sisterOrgs = await getSisterOrgs();
+  const sisterOrgs = await translateSisterOrgs(await getSisterOrgs(), lang);
 
   return (
     <>
@@ -24,7 +25,7 @@ export default async function LinksPage({
           {sisterOrgs.map((org) => (
             <Card
               key={org.name}
-              image={{ src: org.image, alt: org.name }}
+              image={org.image ? { src: org.image, alt: org.name } : undefined}
               padding="lg"
             >
               <h3 className="text-lg font-semibold text-neutral-900">

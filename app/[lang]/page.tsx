@@ -10,6 +10,11 @@ import {
   getUpcomingEvents,
   getAgendaItems,
 } from "@/lib/sanity/queries";
+import {
+  translateAgendaItems,
+  translateNewsItems,
+  translateEvents,
+} from "@/lib/translate";
 import AgendaList from "@/components/AgendaList";
 
 export default async function Home({
@@ -21,9 +26,16 @@ export default async function Home({
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
 
-  const latestNews = await getLatestNews(3);
-  const upcomingEvents = await getUpcomingEvents(3);
-  const agendaItems = await getAgendaItems(5);
+  const [rawLatestNews, rawUpcomingEvents, rawAgendaItems] = await Promise.all([
+    getLatestNews(3),
+    getUpcomingEvents(3),
+    getAgendaItems(5),
+  ]);
+  const [latestNews, upcomingEvents, agendaItems] = await Promise.all([
+    translateNewsItems(rawLatestNews, lang),
+    translateEvents(rawUpcomingEvents, lang),
+    translateAgendaItems(rawAgendaItems, lang),
+  ]);
 
   return (
     <>
@@ -71,7 +83,7 @@ export default async function Home({
                 key={event.slug}
                 href={`/events`}
                 lang={lang}
-                image={{ src: event.image, alt: event.title }}
+                image={event.image ? { src: event.image, alt: event.title } : undefined}
               >
                 <span className="mb-2 inline-block rounded-full bg-primary-tint px-3 py-0.5 text-xs font-medium text-primary">
                   {event.type}
@@ -109,7 +121,7 @@ export default async function Home({
               key={item.slug}
               href={`/news/${item.slug}`}
               lang={lang}
-              image={{ src: item.image, alt: item.title }}
+              image={item.image ? { src: item.image, alt: item.title } : undefined}
             >
               <p className="text-sm text-accent font-medium">
                 {new Date(item.date).toLocaleDateString("en-GB", {

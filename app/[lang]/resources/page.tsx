@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import Card from "@/components/Card";
 import { getResourcesByType } from "@/lib/sanity/queries";
+import { translateResources } from "@/lib/translate";
 import type { ResourceType } from "@/lib/types";
 
 const sections: { type: ResourceType; dictKey: "publications" | "studies" | "documents" }[] = [
@@ -25,7 +26,7 @@ export default async function ResourcesPage({
     sections.map(async ({ type, dictKey }) => ({
       type,
       dictKey,
-      items: await getResourcesByType(type),
+      items: await translateResources(await getResourcesByType(type), lang),
     }))
   );
 

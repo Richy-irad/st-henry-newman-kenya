@@ -63,6 +63,27 @@ export default defineType({
       title: "Post-event write-up (Markdown)",
       type: "text",
       rows: 20,
+      description: "Markdown supported. To embed gallery images inline, upload them in the Gallery field below, then copy their CDN URLs into the markdown.",
+    }),
+    defineField({
+      name: "coverImage",
+      title: "Cover Image",
+      type: "image",
+      options: { hotspot: true },
+      description: "Header image shown above the post-event write-up",
+    }),
+    defineField({
+      name: "gallery",
+      title: "Gallery",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [{ name: "caption", type: "string", title: "Caption" }],
+        },
+      ],
+      description: "Post-event photo gallery (separate from the write-up)",
     }),
   ],
 })
