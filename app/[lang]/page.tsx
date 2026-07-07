@@ -10,6 +10,11 @@ import {
   getUpcomingEvents,
   getAgendaItems,
 } from "@/lib/sanity/queries";
+import {
+  translateAgendaItems,
+  translateNewsItems,
+  translateEvents,
+} from "@/lib/translate";
 import AgendaList from "@/components/AgendaList";
 
 export default async function Home({
@@ -21,9 +26,16 @@ export default async function Home({
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
 
-  const latestNews = await getLatestNews(3);
-  const upcomingEvents = await getUpcomingEvents(3);
-  const agendaItems = await getAgendaItems(5);
+  const [rawLatestNews, rawUpcomingEvents, rawAgendaItems] = await Promise.all([
+    getLatestNews(3),
+    getUpcomingEvents(3),
+    getAgendaItems(5),
+  ]);
+  const [latestNews, upcomingEvents, agendaItems] = await Promise.all([
+    translateNewsItems(rawLatestNews, lang),
+    translateEvents(rawUpcomingEvents, lang),
+    translateAgendaItems(rawAgendaItems, lang),
+  ]);
 
   return (
     <>

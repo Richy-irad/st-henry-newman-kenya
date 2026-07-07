@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import LibraryFilter from "@/components/LibraryFilter";
 import { getLibraryItems } from "@/lib/sanity/queries";
+import { translateLibraryItems } from "@/lib/translate";
 
 export default async function LibraryPage({
   params,
@@ -13,7 +14,7 @@ export default async function LibraryPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
-  const libraryItems = await getLibraryItems();
+  const libraryItems = await translateLibraryItems(await getLibraryItems(), lang);
 
   return (
     <>

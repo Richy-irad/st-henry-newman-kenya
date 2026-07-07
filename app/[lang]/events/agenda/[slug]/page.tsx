@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Markdown from "react-markdown";
 import { getAgendaItemBySlug, getAllAgendaSlugs } from "@/lib/sanity/queries";
+import { translateAgendaItem } from "@/lib/translate";
 
 export async function generateStaticParams() {
   const slugs = await getAllAgendaSlugs();
@@ -28,8 +29,9 @@ export default async function AgendaDetailPage({
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
 
-  const item = await getAgendaItemBySlug(slug);
-  if (!item) notFound();
+  const rawItem = await getAgendaItemBySlug(slug);
+  if (!rawItem) notFound();
+  const item = await translateAgendaItem(rawItem, lang);
 
   const dict = await getDictionary(lang as Locale);
 
