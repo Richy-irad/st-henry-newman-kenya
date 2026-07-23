@@ -15,6 +15,15 @@ const BASE = "https://api.mymemory.translated.net/get";
 const TTL = 86_400;
 const EMAIL = process.env.MYMEMORY_EMAIL ?? "";
 
+// Curated translations for proper nouns MyMemory (a translation-memory
+// service, not neural MT) renders unreliably. Checked before hitting the API.
+const OVERRIDES: Record<string, Record<string, string>> = {
+  "St. John Henry Newman & Friends Association Kenya": {
+    fr: "Association des amis de saint John Henry Newman au Kenya",
+    it: "Associazione degli amici di San Giovanni Henri Newman in Kenya",
+  },
+};
+
 // Layer 1: in-process cache — avoids redundant unstable_cache lookups within a single process
 const memCache = new Map<string, string>();
 
@@ -46,9 +55,12 @@ async function safe(
   lang: string,
 ): Promise<string | undefined> {
   if (!text) return text ?? undefined;
+  const override = OVERRIDES[text]?.[lang];
+  if (override) return override;
   try {
     return await translateText(text, lang);
-  } catch {
+  } catch (err) {
+    console.error(`translate failed [${lang}]: "${text.slice(0, 60)}"`, err);
     return text;
   }
 }
