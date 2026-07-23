@@ -1,5 +1,4 @@
 import "server-only";
-import { unstable_cache } from "next/cache";
 import { translateObject } from "@/lib/translate";
 import enDict from "@/dictionaries/en.json";
 
@@ -12,11 +11,7 @@ export function hasLocale(locale: string): locale is Locale {
   return (locales as string[]).includes(locale);
 }
 
-export const getDictionary = unstable_cache(
-  async (locale: Locale): Promise<Dictionary> => {
-    if (locale === "en") return enDict;
-    return translateObject(enDict, locale) as Promise<Dictionary>;
-  },
-  ["dictionary"],
-  { revalidate: 86_400, tags: ["translations"] },
-);
+export async function getDictionary(locale: Locale): Promise<Dictionary> {
+  if (locale === "en") return enDict;
+  return translateObject(enDict, locale) as Promise<Dictionary>;
+}
