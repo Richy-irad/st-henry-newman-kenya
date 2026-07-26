@@ -18,7 +18,7 @@ const EMAIL = process.env.MYMEMORY_EMAIL ?? "";
 // Curated translations for proper nouns MyMemory (a translation-memory
 // service, not neural MT) renders unreliably. Checked before hitting the API.
 const OVERRIDES: Record<string, Record<string, string>> = {
-  "St. John Henry Newman & Friends Association Kenya": {
+  "Saint John Henry Newman Friends Association Kenya": {
     fr: "Association des amis de saint John Henry Newman au Kenya",
     it: "Associazione degli amici di San Giovanni Henri Newman in Kenya",
   },

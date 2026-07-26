@@ -18,8 +18,8 @@ export async function generateMetadata({
   const dict = await getDictionary(lang as Locale);
   return {
     title: {
-      template: "%s | St. John Henry Newman & Friends Association Kenya",
-      default: "St. John Henry Newman & Friends Association Kenya",
+      template: "%s | Saint John Henry Newman Friends Association Kenya",
+      default: "Saint John Henry Newman Friends Association Kenya",
     },
     description: dict.home.heroSubtitle,
   };
