@@ -1,4 +1,5 @@
 import { Playfair_Display, Source_Sans_3 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -20,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${playfair.variable} ${sourceSans.variable} antialiased`}>
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
