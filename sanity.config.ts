@@ -2,6 +2,8 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./sanity/schemas";
+import { translateDocumentAction } from "./sanity/actions/translateDocumentAction";
+import { TRANSLATABLE_FIELDS } from "./sanity/lib/translatableFields";
 
 export default defineConfig({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -15,5 +17,11 @@ export default defineConfig({
     }),
   ],
   schema: { types: schemaTypes },
+  document: {
+    actions: (prev, context) =>
+      TRANSLATABLE_FIELDS[context.schemaType]
+        ? [translateDocumentAction, ...prev]
+        : prev,
+  },
   title: "St. John Henry Newman Kenya",
 });

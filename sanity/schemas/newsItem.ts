@@ -1,37 +1,22 @@
 import { defineField, defineType } from "sanity"
+import { localeString } from "./locale/localeString"
+import { localeText } from "./locale/localeText"
 
 export default defineType({
   name: "newsItem",
   title: "News Item",
   type: "document",
   fields: [
-    defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
+    localeString({ name: "title", title: "Title" }),
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "title" },
+      options: { source: "title.en" },
       validation: (r) => r.required(),
     }),
-    defineField({
-      name: "excerpt",
-      title: "Excerpt",
-      type: "text",
-      rows: 3,
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "content",
-      title: "Content (Markdown)",
-      type: "text",
-      rows: 20,
-      validation: (r) => r.required(),
-    }),
+    localeText({ name: "excerpt", title: "Excerpt", rows: 3 }),
+    localeText({ name: "content", title: "Content (Markdown)", rows: 20 }),
     defineField({
       name: "date",
       title: "Date",

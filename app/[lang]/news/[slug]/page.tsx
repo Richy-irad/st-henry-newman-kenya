@@ -2,7 +2,6 @@ import { getDictionary, hasLocale } from "../../dictionaries";
 import type { Locale } from "../../dictionaries";
 import { notFound } from "next/navigation";
 import { getNewsBySlug, getAllNewsSlugs } from "@/lib/sanity/queries";
-import { translateNewsItem } from "@/lib/translate";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -20,9 +19,8 @@ export default async function NewsDetailPage({
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
 
-  const rawArticle = await getNewsBySlug(slug);
-  if (!rawArticle) notFound();
-  const article = await translateNewsItem(rawArticle, lang);
+  const article = await getNewsBySlug(slug, lang);
+  if (!article) notFound();
 
   const dict = await getDictionary(lang as Locale);
 

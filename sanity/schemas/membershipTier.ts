@@ -1,29 +1,15 @@
 import { defineField, defineType } from "sanity"
+import { localeString } from "./locale/localeString"
+import { localeStringArray } from "./locale/localeStringArray"
 
 export default defineType({
   name: "membershipTier",
   title: "Membership Tier",
   type: "document",
   fields: [
-    defineField({
-      name: "name",
-      title: "Name",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "price",
-      title: "Price",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "benefits",
-      title: "Benefits",
-      type: "array",
-      of: [{ type: "string" }],
-      validation: (r) => r.required().min(1),
-    }),
+    localeString({ name: "name", title: "Name" }),
+    localeString({ name: "price", title: "Price" }),
+    localeStringArray({ name: "benefits", title: "Benefits" }),
     defineField({
       name: "highlighted",
       title: "Highlighted",

@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "backfill:translations": "tsx scripts/backfill-translations.ts"
   },
   "dependencies": {
+    "@sanity/cli": "^8.3.0",
     "@sanity/image-url": "^2.1.1",
+    "@sanity/ui": "^3.5.3",
     "@sanity/vision": "^5.22.0",
     "@vercel/analytics": "^2.0.1",
     "next": "16.2.2",
@@ -20,6 +23,7 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
+    "@sanity/client": "^7.26.2",
     "@sanity/types": "^5.22.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -28,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5"
   }
 }
