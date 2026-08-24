@@ -1,6 +1,7 @@
 import { defineField } from "sanity"
 import { SUPPORTED_LANGUAGES, NON_BASE_LANGUAGES } from "../../lib/locales"
 import { StaleTranslationField } from "../../components/StaleTranslationField"
+import { LocalizedInput } from "../../components/LocalizedInput"
 
 export function localeString(field: {
   name: string
@@ -15,7 +16,7 @@ export function localeString(field: {
     description: field.description,
     type: "object",
     options: { collapsible: true, collapsed: false },
-    components: { field: StaleTranslationField },
+    components: { field: StaleTranslationField, input: LocalizedInput },
     fields: [
       ...SUPPORTED_LANGUAGES.map((lang) =>
         defineField({
