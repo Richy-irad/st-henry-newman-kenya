@@ -181,8 +181,9 @@ export async function getMembershipTiers(lang: string): Promise<MembershipTier[]
 // ---------------------------------------------------------------------------
 
 export async function getAgendaItems(lang: string, count?: number): Promise<AgendaItem[]> {
-  const all = await sanityClient.fetch<AgendaItem[]>(
-    `*[_type == "agendaItem"] | order(startDate asc) {
+  const limit = count ? `[0...${count}]` : "";
+  return sanityClient.fetch<AgendaItem[]>(
+    `*[_type == "agendaItem"] | order(coalesce(endDate, startDate) desc) ${limit} {
       "slug": slug.current,
       "title": ${localized("title")},
       startDate, endDate, time, followUrl,
@@ -193,11 +194,6 @@ export async function getAgendaItems(lang: string, count?: number): Promise<Agen
     }`,
     { lang: resolveLang(lang) },
   );
-  const today = new Date().toISOString().slice(0, 10);
-  const past = all.filter((i) => (i.endDate ?? i.startDate) < today);
-  const upcoming = all.filter((i) => (i.endDate ?? i.startDate) >= today);
-  const sorted = [...past, ...upcoming];
-  return count ? sorted.slice(0, count) : sorted;
 }
 
 export async function getAgendaItemBySlug(
