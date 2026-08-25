@@ -32,12 +32,18 @@ export async function fetchTranslation(text: string, lang: string): Promise<stri
   // is the documented signal for one variant of this; empirically there's also
   // a fully silent variant (200, quotaFinished still false/null, translatedText
   // byte-identical to the query) with no signal at all besides the echo itself
-  // — confirmed by hitting it directly against this project's live data. Both
-  // must be treated as failure, or a no-op pass-through gets written to Sanity
-  // looking like a genuine translation.
+  // — confirmed by hitting it directly against this project's live data.
   const translated: string = data.responseData.translatedText;
   if (data.quotaFinished) throw new Error("MyMemory quota finished");
-  if (translated.trim() === text.trim()) throw new Error("MyMemory returned source text unchanged");
+  // Only treat an identical echo as a failure for multi-word text: short
+  // strings (country names, brand names, "France", "KTO TV"...) are
+  // frequently — and correctly — identical across en/fr/it, confirmed
+  // against live MyMemory responses with match:1. A full sentence coming
+  // back byte-identical is essentially never a real translation, so that
+  // case is still treated as a silent pass-through failure.
+  const isMultiWord = text.trim().split(/\s+/).length > 2;
+  if (isMultiWord && translated.trim() === text.trim())
+    throw new Error("MyMemory returned source text unchanged");
   memCache.set(key, translated);
   return translated;
 }

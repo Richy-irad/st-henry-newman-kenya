@@ -17,4 +17,7 @@ export default defineType({
     }),
     localeText({ name: "description", title: "Description", rows: 3, required: false }),
   ],
+  preview: {
+    select: { title: "name.en" },
+  },
 })

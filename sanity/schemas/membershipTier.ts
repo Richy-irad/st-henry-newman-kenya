@@ -28,4 +28,7 @@ export default defineType({
       by: [{ field: "order", direction: "asc" }],
     },
   ],
+  preview: {
+    select: { title: "name.en" },
+  },
 })

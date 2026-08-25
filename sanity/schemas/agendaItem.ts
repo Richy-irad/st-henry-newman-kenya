@@ -38,12 +38,7 @@ export default defineType({
       type: "string",
       description: "e.g. 19:00 — leave blank if all-day",
     }),
-    defineField({
-      name: "location",
-      title: "Location",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
+    localeString({ name: "location", title: "Location" }),
     defineField({
       name: "followUrl",
       title: "Follow URL",
@@ -84,4 +79,7 @@ export default defineType({
       description: "Post-event photo gallery (separate from the write-up)",
     }),
   ],
+  preview: {
+    select: { title: "title.en" },
+  },
 })

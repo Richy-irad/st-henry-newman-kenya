@@ -1,7 +1,7 @@
 export const TRANSLATABLE_FIELDS: Record<string, string[]> = {
   newsItem: ["title", "excerpt", "content"],
   event: ["title", "description"],
-  agendaItem: ["title", "followNote", "content", "gallery[].caption"],
+  agendaItem: ["title", "location", "followNote", "content", "gallery[].caption"],
   celebration: ["name", "description"],
   teamMember: ["role", "bio"],
   resource: ["title", "description"],

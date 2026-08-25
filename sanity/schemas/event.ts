@@ -55,4 +55,7 @@ export default defineType({
       type: "url",
     }),
   ],
+  preview: {
+    select: { title: "title.en" },
+  },
 })

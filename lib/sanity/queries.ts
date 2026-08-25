@@ -185,7 +185,8 @@ export async function getAgendaItems(lang: string, count?: number): Promise<Agen
     `*[_type == "agendaItem"] | order(startDate asc) {
       "slug": slug.current,
       "title": ${localized("title")},
-      startDate, endDate, time, location, followUrl,
+      startDate, endDate, time, followUrl,
+      "location": ${localized("location")},
       "followNote": ${localized("followNote")},
       "content": ${localized("content")},
       "celebration": celebration->{"name": ${localized("name")}, "slug": slug.current}
@@ -207,7 +208,8 @@ export async function getAgendaItemBySlug(
     `*[_type == "agendaItem" && slug.current == $slug][0] {
       "slug": slug.current,
       "title": ${localized("title")},
-      startDate, endDate, time, location, followUrl,
+      startDate, endDate, time, followUrl,
+      "location": ${localized("location")},
       "followNote": ${localized("followNote")},
       "content": ${localized("content")},
       "celebration": celebration->{"name": ${localized("name")}, "slug": slug.current},

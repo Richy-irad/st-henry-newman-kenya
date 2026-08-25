@@ -42,4 +42,7 @@ export default defineType({
       by: [{ field: "date", direction: "desc" }],
     },
   ],
+  preview: {
+    select: { title: "title.en" },
+  },
 })

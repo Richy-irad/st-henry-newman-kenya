@@ -28,4 +28,7 @@ export default defineType({
       validation: (r) => r.required(),
     }),
   ],
+  preview: {
+    select: { title: "name.en" },
+  },
 })
