@@ -6,7 +6,6 @@ import SectionHeading from "@/components/SectionHeading";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
 import { getMembershipTiers } from "@/lib/sanity/queries";
-import { translateMembershipTiers } from "@/lib/translate";
 
 export default async function MembershipPage({
   params,
@@ -16,7 +15,7 @@ export default async function MembershipPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
-  const membershipTiers = await translateMembershipTiers(await getMembershipTiers(), lang);
+  const membershipTiers = await getMembershipTiers(lang);
 
   return (
     <>

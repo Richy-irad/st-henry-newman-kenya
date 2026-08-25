@@ -1,23 +1,14 @@
 import { defineField, defineType } from "sanity"
+import { localeString } from "./locale/localeString"
+import { localeText } from "./locale/localeText"
 
 export default defineType({
   name: "sisterOrg",
   title: "Sister Organisation",
   type: "document",
   fields: [
-    defineField({
-      name: "name",
-      title: "Name",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "description",
-      title: "Description",
-      type: "text",
-      rows: 3,
-      validation: (r) => r.required(),
-    }),
+    localeString({ name: "name", title: "Name" }),
+    localeText({ name: "description", title: "Description", rows: 3 }),
     defineField({
       name: "url",
       title: "URL",
@@ -37,4 +28,7 @@ export default defineType({
       validation: (r) => r.required(),
     }),
   ],
+  preview: {
+    select: { title: "name.en" },
+  },
 })

@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import Hero from "@/components/Hero";
 import EventFilter from "@/components/EventFilter";
 import { getUpcomingEvents, getAgendaItems } from "@/lib/sanity/queries";
-import { translateAgendaItems, translateEvents } from "@/lib/translate";
 import AgendaList from "@/components/AgendaList";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -17,13 +16,9 @@ export default async function EventsPage({
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang as Locale);
 
-  const [rawEvents, rawAgendaItems] = await Promise.all([
-    getUpcomingEvents(),
-    getAgendaItems(),
-  ]);
   const [events, agendaItems] = await Promise.all([
-    translateEvents(rawEvents, lang),
-    translateAgendaItems(rawAgendaItems, lang),
+    getUpcomingEvents(lang),
+    getAgendaItems(lang),
   ]);
 
   return (

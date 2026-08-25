@@ -1,21 +1,18 @@
 import { defineField, defineType } from "sanity"
+import { localeString } from "./locale/localeString"
+import { localeText } from "./locale/localeText"
 
 export default defineType({
   name: "agendaItem",
   title: "Agenda Item",
   type: "document",
   fields: [
-    defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
+    localeString({ name: "title", title: "Title" }),
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "title" },
+      options: { source: "title.en" },
       validation: (r) => r.required(),
     }),
     defineField({
@@ -41,29 +38,25 @@ export default defineType({
       type: "string",
       description: "e.g. 19:00 — leave blank if all-day",
     }),
-    defineField({
-      name: "location",
-      title: "Location",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
+    localeString({ name: "location", title: "Location" }),
     defineField({
       name: "followUrl",
       title: "Follow URL",
       type: "url",
     }),
-    defineField({
+    localeString({
       name: "followNote",
       title: "Follow Note",
-      type: "string",
       description: "e.g. via Radio RCF-Liège",
+      required: false,
     }),
-    defineField({
+    localeText({
       name: "content",
       title: "Post-event write-up (Markdown)",
-      type: "text",
       rows: 20,
-      description: "Markdown supported. To embed gallery images inline, upload them in the Gallery field below, then copy their CDN URLs into the markdown.",
+      required: false,
+      description:
+        "Markdown supported. To embed gallery images inline, upload them in the Gallery field below, then copy their CDN URLs into the markdown.",
     }),
     defineField({
       name: "coverImage",
@@ -80,10 +73,13 @@ export default defineType({
         {
           type: "image",
           options: { hotspot: true },
-          fields: [{ name: "caption", type: "string", title: "Caption" }],
+          fields: [localeString({ name: "caption", title: "Caption", required: false })],
         },
       ],
       description: "Post-event photo gallery (separate from the write-up)",
     }),
   ],
+  preview: {
+    select: { title: "title.en" },
+  },
 })

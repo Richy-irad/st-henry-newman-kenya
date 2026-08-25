@@ -1,4 +1,6 @@
 import { defineField, defineType } from "sanity"
+import { localeString } from "./locale/localeString"
+import { localeText } from "./locale/localeText"
 
 export default defineType({
   name: "teamMember",
@@ -11,19 +13,8 @@ export default defineType({
       type: "string",
       validation: (r) => r.required(),
     }),
-    defineField({
-      name: "role",
-      title: "Role",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
-    defineField({
-      name: "bio",
-      title: "Bio",
-      type: "text",
-      rows: 4,
-      validation: (r) => r.required(),
-    }),
+    localeString({ name: "role", title: "Role" }),
+    localeText({ name: "bio", title: "Bio", rows: 4 }),
     defineField({
       name: "image",
       title: "Image",
