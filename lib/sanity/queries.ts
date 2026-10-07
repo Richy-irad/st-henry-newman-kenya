@@ -49,6 +49,7 @@ export async function getLatestNews(lang: string, count?: number): Promise<NewsI
       author
     }`,
     { lang: resolveLang(lang) },
+    { next: { tags: ["newsItem"] } },
   );
 }
 
@@ -64,12 +65,15 @@ export async function getNewsBySlug(slug: string, lang: string): Promise<NewsIte
       author
     }`,
     { slug, lang: resolveLang(lang) },
+    { next: { tags: ["newsItem"] } },
   );
 }
 
 export async function getAllNewsSlugs(): Promise<{ slug: string }[]> {
   return sanityClient.fetch<{ slug: string }[]>(
     `*[_type == "newsItem"] { "slug": slug.current }`,
+    {},
+    { next: { tags: ["newsItem"] } },
   );
 }
 
@@ -89,6 +93,7 @@ export async function getUpcomingEvents(lang: string, count?: number): Promise<E
       registrationUrl
     }`,
     { lang: resolveLang(lang) },
+    { next: { tags: ["event"] } },
   );
 }
 
@@ -105,6 +110,7 @@ export async function getTeamMembers(lang: string): Promise<TeamMember[]> {
       "image": ${IMAGE_URL}
     }`,
     { lang: resolveLang(lang) },
+    { next: { tags: ["teamMember"] } },
   );
 }
 
@@ -124,6 +130,7 @@ export async function getResourcesByType(
       type, downloadUrl, date, fileSize
     }`,
     { type, lang: resolveLang(lang) },
+    { next: { tags: ["resource"] } },
   );
 }
 
@@ -140,6 +147,7 @@ export async function getLibraryItems(lang: string): Promise<LibraryItem[]> {
       author, year, category, link
     }`,
     { lang: resolveLang(lang) },
+    { next: { tags: ["libraryItem"] } },
   );
 }
 
@@ -157,6 +165,7 @@ export async function getSisterOrgs(lang: string): Promise<SisterOrg[]> {
       country
     }`,
     { lang: resolveLang(lang) },
+    { next: { tags: ["sisterOrg"] } },
   );
 }
 
@@ -173,6 +182,7 @@ export async function getMembershipTiers(lang: string): Promise<MembershipTier[]
       highlighted
     }`,
     { lang: resolveLang(lang) },
+    { next: { tags: ["membershipTier"] } },
   );
 }
 
@@ -193,6 +203,7 @@ export async function getAgendaItems(lang: string, count?: number): Promise<Agen
       "celebration": celebration->{"name": ${localized("name")}, "slug": slug.current}
     }`,
     { lang: resolveLang(lang) },
+    { next: { tags: ["agendaItem"] } },
   );
 }
 
@@ -213,12 +224,15 @@ export async function getAgendaItemBySlug(
       "gallery": gallery[]{ "url": asset->url, "caption": ${localized("caption")} }
     }`,
     { slug, lang: resolveLang(lang) },
+    { next: { tags: ["agendaItem"] } },
   );
 }
 
 export async function getAllAgendaSlugs(): Promise<{ slug: string }[]> {
   return sanityClient.fetch<{ slug: string }[]>(
     `*[_type == "agendaItem"] { "slug": slug.current }`,
+    {},
+    { next: { tags: ["agendaItem"] } },
   );
 }
 
@@ -232,5 +246,6 @@ export async function getCelebrationBySlug(
       "description": ${localized("description")}
     }`,
     { slug, lang: resolveLang(lang) },
+    { next: { tags: ["celebration"] } },
   );
 }
